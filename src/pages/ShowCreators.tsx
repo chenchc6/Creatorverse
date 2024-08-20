@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CreatorCard from '../components/CreatorCard';
 import { fetchCreators, Creator } from '../services/creatorService';
-import { useNavigate } from 'react-router-dom';
 
 const ShowCreators: React.FC = () => {
   // State to hold fetched creators data
@@ -10,8 +9,6 @@ const ShowCreators: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   // State to manage error messages
   const [error, setError] = useState<string | null>(null);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch creators data from the service
@@ -36,13 +33,7 @@ const ShowCreators: React.FC = () => {
 
   return (
     <div>
-      <button
-        onClick={() => navigate('/add')}
-        className='bg-violet-500 text-white px-4 py-2 rounded mb-4'
-      >
-        Add New Creator
-      </button>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-8'>
         {creators.length ? (
           creators.map((creator) => (
             <CreatorCard key={creator.id} {...creator} />

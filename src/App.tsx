@@ -6,6 +6,7 @@ import ViewCreator from './pages/ViewCreator';
 import EditCreator from './pages/EditCreator';
 import AddCreator from './pages/AddCreator';
 import NotFound from './pages/NotFound';
+import Banner from './components/Banner';
 
 const App: React.FC = () => {
   const routes = useRoutes([
@@ -16,7 +17,12 @@ const App: React.FC = () => {
     { path: '*', element: <NotFound /> },
   ]);
 
-  return <div>{routes}</div>;
+  return (
+    <div>
+      <Banner /> {/* Include the Banner at the top */}
+      {routes} {/* Render the routes */}
+    </div>
+  );
 };
 
 export default App;
