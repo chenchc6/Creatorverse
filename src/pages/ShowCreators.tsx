@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CreatorCard from '../components/CreatorCard';
 import { fetchCreators, Creator } from '../services/creatorService';
+import { useNavigate } from 'react-router-dom';
 
 const ShowCreators: React.FC = () => {
   // State to hold fetched creators data
@@ -10,34 +11,46 @@ const ShowCreators: React.FC = () => {
   // State to manage error messages
   const [error, setError] = useState<string | null>(null);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     // Fetch creators data from the service
     const getCreators = async () => {
       try {
         const data = await fetchCreators();
-        setCreators(data); // Set creators state with fetched data
+        setCreators(data);
       } catch (error) {
-        console.error('Error fetching creators:', error); // Log the error to the console
-        setError('Failed to fetch creators.'); // Set error state
+        console.error('Error fetching creators:', error);
+        setError('Failed to fetch creators.');
       } finally {
-        setLoading(false); // Stop loading indicator
+        setLoading(false);
       }
     };
 
     getCreators();
-  }, []); // Run once when the component mounts
+  }, []);
 
   // Display loading, error, or creators data
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
-      {creators.length ? (
-        creators.map((creator) => <CreatorCard key={creator.id} {...creator} />)
-      ) : (
-        <p>No content creators found.</p> // Message when no creators exist
-      )}
+    <div>
+      <button
+        onClick={() => navigate('/add')}
+        className='bg-violet-500 text-white px-4 py-2 rounded mb-4'
+      >
+        Add New Creator
+      </button>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
+        {creators.length ? (
+          creators.map((creator) => (
+            <CreatorCard key={creator.id} {...creator} />
+          ))
+        ) : (
+          <p>No content creators found.</p>
+        )}
+      </div>
     </div>
   );
 };
