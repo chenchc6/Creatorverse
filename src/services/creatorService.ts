@@ -2,11 +2,13 @@
 import { supabase } from '../client';
 
 export interface Creator {
-  id: string;
+  id?: string;
   name: string;
-  url: string;
+  imageURL: string;
   description: string;
-  imageURL?: string;
+  youtube?: string;
+  twitter?: string;
+  instagram?: string;
 }
 
 // Fetch all creators
