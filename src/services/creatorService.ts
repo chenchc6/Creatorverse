@@ -2,7 +2,7 @@
 import { supabase } from '../client';
 
 export interface Creator {
-  id?: string;
+  id: string;
   name: string;
   imageURL: string;
   description: string;
