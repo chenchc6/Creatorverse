@@ -15,7 +15,9 @@ const ShowCreators: React.FC = () => {
     const getCreators = async () => {
       try {
         const data = await fetchCreators();
-        setCreators(data);
+        setCreators(
+          data.filter((creator) => creator.id !== undefined) // Ensure only creators with ids are included
+        );
       } catch (error) {
         console.error('Error fetching creators:', error);
         setError('Failed to fetch creators.');
@@ -33,7 +35,7 @@ const ShowCreators: React.FC = () => {
 
   return (
     <div className='flex justify-center mx-auto p-10'>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-screen-xl'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6 w-full max-w-screen-xl'>
         {creators.length ? (
           creators.map((creator) => (
             <CreatorCard key={creator.id} {...creator} />
