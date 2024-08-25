@@ -128,7 +128,7 @@ const EditCreator: React.FC = () => {
         />
       </div>
 
-      <h3 className='text-2xl font-semibold text-sky-700 text-left'>
+      <h3 className='text-2xl font-semibold text-gray-900 text-left'>
         Social Media Links
       </h3>
       <p className='text-sm text-gray-500 mb-4 text-left'>
@@ -186,14 +186,14 @@ const EditCreator: React.FC = () => {
       <div className='flex justify-between mt-4'>
         <button
           type='submit'
-          className='w-full bg-sky-600 text-white px-4 py-2 rounded-md mr-2'
+          className='w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-400 hover:shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out mr-2'
         >
           Submit
         </button>
         <button
           type='button'
           onClick={handleDelete}
-          className='w-full bg-red-600 text-white px-4 py-2 rounded-md ml-2'
+          className='w-full bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-400 hover:shadow-lg hover:shadow-rose-300 transition-all duration-300 ease-in-out ml-2'
         >
           Delete
         </button>

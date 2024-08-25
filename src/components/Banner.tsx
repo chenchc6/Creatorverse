@@ -11,19 +11,19 @@ const Banner: React.FC = () => {
         backgroundImage: `url(${backgroundImage})`,
       }}
     >
-      <h1 className='text-white text-6xl font-bold text-center'>
+      <h1 className='text-white text-9xl font-extrabold text-center'>
         CREATORVERSE
       </h1>
       <div className='flex space-x-4 mt-4'>
         <button
           onClick={() => (window.location.href = '/')}
-          className='bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600'
+          className='bg-blue-400 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-300 hover:shadow-md hover:shadow-slate-300 w-64 transition-all duration-300 ease-in-out'
         >
           VIEW ALL CREATORS
         </button>
         <button
           onClick={() => (window.location.href = '/add')}
-          className='bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600'
+          className='bg-blue-400 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-300 hover:shadow-md hover:shadow-slate-300 w-64 transition-all duration-300 ease-in-out'
         >
           ADD A CREATOR
         </button>

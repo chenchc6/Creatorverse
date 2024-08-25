@@ -44,10 +44,6 @@ const AddCreator: React.FC = () => {
       onSubmit={handleSubmit}
       className='max-w-3xl mx-auto my-10 p-12 bg-white shadow-md rounded-md'
     >
-      {/* <h2 className='text-3xl font-bold mb-4 text-left text-sky-700'>
-        Add a New Creator
-      </h2> */}
-
       <div className='mb-4 text-left'>
         <label className='block text-lg font-semibold text-gray-700'>
           Name
@@ -93,7 +89,7 @@ const AddCreator: React.FC = () => {
         />
       </div>
 
-      <h3 className='text-2xl font-semibold text-sky-700 text-left'>
+      <h3 className='text-2xl font-semibold text-gray-900 text-left'>
         Social Media Links
       </h3>
       <p className='text-sm text-gray-500 mb-4 text-left'>
@@ -150,7 +146,7 @@ const AddCreator: React.FC = () => {
 
       <button
         type='submit'
-        className='w-full bg-sky-600 text-white px-4 py-2 rounded-md mt-4'
+        className='w-full bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-400 hover:shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out px-4 py-2 mt-4'
       >
         Submit
       </button>
