@@ -36,7 +36,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-👉🏿<img src='public/short.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+👉🏿<img src='public/video_walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with ... 👉🏿 LICEcap
 
