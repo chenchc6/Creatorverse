@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Dosis:wght@200..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import 'sweetalert2/dist/sweetalert2.min.css';
 
 @tailwind base;
 @tailwind components;
@@ -85,6 +86,79 @@ textarea {
 input::placeholder,
 textarea::placeholder {
   color: #888;
+}
+
+/* Override SweetAlert2 styles */
+
+/* Change the background color and text color of the SweetAlert popup */
+.swal2-popup {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+}
+
+/* Change the color and style of the title */
+.swal2-title {
+  font-family: 'Roboto', sans-serif !important;
+  color: #cccccc !important;
+  font-size: 24px !important;
+  font-weight: bold !important;
+}
+
+/* Change the color and style of the content text */
+.swal2-content {
+  font-family: 'Roboto', sans-serif !important;
+  color: #cccccc !important;
+}
+
+/* Customize the confirm button */
+.swal2-confirm {
+  background-color: #3085d6 !important;
+  border-color: #3085d6 !important;
+  color: #ffffff !important;
+  border-radius: 5px !important;
+  padding: 10px 20px !important;
+  font-size: 16px !important;
+}
+
+.swal2-confirm:hover {
+  background-color: #1e73be !important;
+  border-color: #1e73be !important;
+}
+
+/* Customize the cancel button */
+.swal2-cancel {
+  background-color: #e3342f !important;
+  border-color: #e3342f !important;
+  color: #ffffff !important;
+  border-radius: 5px !important;
+  padding: 10px 20px !important;
+  font-size: 16px !important;
+}
+
+.swal2-cancel:hover {
+  background-color: #c72825 !important;
+  border-color: #c72825 !important;
+}
+
+/* Customize the buttons' focus style */
+.swal2-styled:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Change the border and padding of the SweetAlert modal */
+.swal2-container {
+  padding: 2rem !important;
+}
+
+/* Customize the background overlay */
+.swal2-backdrop {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Adjust the width of the modal */
+.swal2-popup {
+  width: 400px !important;
 }
 
 @media (prefers-color-scheme: dark) {

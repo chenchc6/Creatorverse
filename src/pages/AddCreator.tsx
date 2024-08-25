@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { addCreator } from '../services/creatorService';
 import { FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const AddCreator: React.FC = () => {
   const [name, setName] = useState('');
@@ -14,7 +15,12 @@ const AddCreator: React.FC = () => {
     e.preventDefault();
     try {
       if (!youtube && !twitter && !instagram) {
-        alert('Please provide at least one social media link.');
+        Swal.fire({
+          title: 'Warning!',
+          text: 'Please provide at least one social media link.',
+          icon: 'warning',
+          confirmButtonText: 'OK',
+        });
         return;
       }
       await addCreator({
@@ -25,17 +31,27 @@ const AddCreator: React.FC = () => {
         twitter,
         instagram,
       });
-      alert('Creator added successfully!');
-      // Reset form fields
-      setName('');
-      setImageURL('');
-      setDescription('');
-      setYouTube('');
-      setTwitter('');
-      setInstagram('');
+      Swal.fire({
+        title: 'Success!',
+        text: 'Creator added successfully!',
+        icon: 'success',
+        confirmButtonText: 'OK',
+      }).then(() => {
+        setName('');
+        setImageURL('');
+        setDescription('');
+        setYouTube('');
+        setTwitter('');
+        setInstagram('');
+      });
     } catch (error) {
       console.error('Error adding creator:', error);
-      alert('Failed to add creator.');
+      Swal.fire({
+        title: 'Error!',
+        text: 'Failed to add creator.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
     }
   };
 

@@ -6,6 +6,7 @@ import {
   deleteCreator,
 } from '../services/creatorService';
 import { FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const EditCreator: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -21,7 +22,7 @@ const EditCreator: React.FC = () => {
   useEffect(() => {
     const fetchCreator = async () => {
       try {
-        const creator = await fetchCreatorById(id!); // Use the correct method from the service
+        const creator = await fetchCreatorById(id!);
         if (creator) {
           setName(creator.name);
           setImageURL(creator.imageURL || '');
@@ -30,12 +31,22 @@ const EditCreator: React.FC = () => {
           setTwitter(creator.twitter || '');
           setInstagram(creator.instagram || '');
         } else {
-          alert('Creator not found.');
+          Swal.fire({
+            title: 'Error!',
+            text: 'Creator not found.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+          });
           navigate('/');
         }
       } catch (error) {
         console.error('Error fetching creator:', error);
-        alert('Failed to fetch creator.');
+        Swal.fire({
+          title: 'Error!',
+          text: 'Failed to fetch creator.',
+          icon: 'error',
+          confirmButtonText: 'OK',
+        });
       }
     };
 
@@ -46,7 +57,12 @@ const EditCreator: React.FC = () => {
     e.preventDefault();
     try {
       if (!youtube && !twitter && !instagram) {
-        alert('Please provide at least one social media link.');
+        Swal.fire({
+          title: 'Warning!',
+          text: 'Please provide at least one social media link.',
+          icon: 'warning',
+          confirmButtonText: 'OK',
+        });
         return;
       }
       await updateCreator(id!, {
@@ -57,24 +73,56 @@ const EditCreator: React.FC = () => {
         twitter,
         instagram,
       });
-      alert('Creator updated successfully!');
-      navigate('/');
+      Swal.fire({
+        title: 'Success!',
+        text: 'Creator updated successfully!',
+        icon: 'success',
+        confirmButtonText: 'OK',
+      }).then(() => {
+        navigate('/');
+      });
     } catch (error) {
       console.error('Error updating creator:', error);
-      alert('Failed to update creator.');
+      Swal.fire({
+        title: 'Error!',
+        text: 'Failed to update creator.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
     }
   };
 
   const handleDelete = async () => {
     try {
-      if (window.confirm('Are you sure you want to delete this creator?')) {
+      const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true,
+      });
+
+      if (result.isConfirmed) {
         await deleteCreator(id!);
-        alert('Creator deleted successfully!');
-        navigate('/');
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'Creator has been deleted.',
+          icon: 'success',
+          confirmButtonText: 'OK',
+        }).then(() => {
+          navigate('/');
+        });
       }
     } catch (error) {
       console.error('Error deleting creator:', error);
-      alert('Failed to delete creator.');
+      Swal.fire({
+        title: 'Error!',
+        text: 'Failed to delete creator.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
     }
   };
 

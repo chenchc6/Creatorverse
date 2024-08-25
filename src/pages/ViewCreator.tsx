@@ -6,6 +6,7 @@ import {
   Creator,
 } from '../services/creatorService';
 import { FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const ViewCreator: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -35,15 +36,36 @@ const ViewCreator: React.FC = () => {
   };
 
   const handleDelete = async () => {
-    if (window.confirm('Are you sure you want to delete this creator?')) {
-      try {
+    try {
+      const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true,
+      });
+
+      if (result.isConfirmed) {
         await deleteCreator(id!);
-        alert('Creator deleted successfully.');
-        navigate('/');
-      } catch (error) {
-        console.error('Error deleting creator:', error);
-        alert('Failed to delete creator.');
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'Creator has been deleted.',
+          icon: 'success',
+          confirmButtonText: 'OK',
+        }).then(() => {
+          navigate('/');
+        });
       }
+    } catch (error) {
+      console.error('Error deleting creator:', error);
+      Swal.fire({
+        title: 'Error!',
+        text: 'Failed to delete creator.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
     }
   };
 
