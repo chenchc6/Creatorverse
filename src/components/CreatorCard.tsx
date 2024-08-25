@@ -39,7 +39,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 
   return (
     <div
-      className='w-full max-w-2xl rounded-lg overflow-hidden shadow-lg text-white relative'
+      className='w-full max-w-2xl rounded-lg overflow-hidden shadow-lg text-white relative transform transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-opacity-80'
       style={{
         backgroundImage: `url(${imageURL})`,
         backgroundSize: 'cover',
@@ -47,7 +47,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
         height: '300px',
       }}
     >
-      <div className='absolute inset-0 bg-black bg-opacity-60'></div>
+      <div className='absolute inset-0 bg-black bg-opacity-60 transition-colors duration-300 ease-in-out hover:bg-opacity-50'></div>
       <div className='absolute inset-0 p-6 flex flex-col'>
         <div className='flex justify-between items-center mt-20 mb-4'>
           <h2 className='font-bold text-2xl'>{name}</h2>
