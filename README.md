@@ -1,14 +1,7 @@
-# WEB103 Prework - _👉🏿 Creatorverse_
-
-Submitted by: **👉🏿 Chen Chen**
-
 About this web app: 👉🏿 Creatorverse is a platform where users can manage and showcase content creators. The app allows users to add, view, edit, and delete content creators, each having their own detailed page with social media links.
 
-Time spent: **👉🏿 35** hours
 
-## Required Features
-
-The following **required** functionality is completed:
+## Features
 
 - [x] **A logical component structure in React is used to create the frontend of the app**
 - [x] **At least five content creators are displayed on the homepage of the app**
@@ -20,13 +13,9 @@ The following **required** functionality is completed:
 - [x] **The user can delete a content creator**
 - [x] **The user can add a new content creator by entering a name, url, or description and then it is displayed on the homepage**
 
-The following **optional** features are implemented:
-
 - [x] Picocss is used to style HTML elements
 - [x] The content creator items are displayed in a creative format, like cards instead of a list
 - [x] An image of each content creator is shown on their content creator card
-
-The following **additional** features are implemented:
 
 - [x] SweetAlert2 is used for enhanced alert messages
 - [x] Hover effects and animations for buttons and creator cards
@@ -40,14 +29,7 @@ Here's a walkthrough of implemented required features:
 
 GIF created with ... 👉🏿 LICEcap
 
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
 
-## Notes
-
-Describe any challenges encountered while building the app or any additional context you'd like to add.
 
 ## License
 
